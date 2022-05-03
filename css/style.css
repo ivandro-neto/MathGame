@@ -4,7 +4,7 @@
     Coded by Ivandro Neto
 */
 /*Default style*/
-html{
+body{
     display: grid;
     position: relative;
     height: 100vh;
@@ -52,7 +52,7 @@ html{
 }
 #score{
     background-color: #F1FF92;
-    color: #888E5F;
+    color: #555E2F;
     padding: 11px;
     position: absolute;
     left: 500px;
@@ -71,7 +71,7 @@ html{
 
     position: absolute;
     left: 260px;
-    background-color: #42e252;
+    background-color: #ff1121;
     color: white;
     padding: 11px;
     display: none;
@@ -103,6 +103,7 @@ html{
     margin:5px auto;
 }
 .box{
+    display: flex;
     width: 85px;
     height:85px;
     background-color: white;
@@ -110,7 +111,8 @@ html{
     margin-right: 36px;
     border-radius: 2px;
     box-shadow: 0 4px rgba(0, 0, 0, .3);
-    text-align: center;
+    align-items: center;
+    justify-content: center;
     line-height: 80px;
     transition: all .2s;
     cursor: pointer;
@@ -239,57 +241,58 @@ html{
 }
 /* Mobile view */
 @media screen and (max-width: 500px){
-    html{
-        width: auto;
-        height: auto;
+    body{
+        height: 800px;
+        width:400px;
         justify-content: baseline;
         align-items: baseline;
     }
     .intro{
-        width: 100vw;
-        height: 100vh;
+        height: 800px;
+        width:400px;
         font-size: 70px;   
     }
     #container{
         display: grid;
         top: 0;
         left: 0;
-        height: 770px;
-        width:340px;
+        height: 670px;
+        width:300px;
         margin: 0;
         align-items: center;
         justify-content: center;
     }
     #score{
-        top: 10px;
-        left: 300px;
+        top: 15px;
+        left: 250px;
     }
     #question{
         display: flex;
-        width: 85vw;
+        width: 80vw;
         height: 340px;
         justify-content: center;
         align-items: center;
     }
     #instruction{
-        width: 90vw;
+        width: 80vw;
         height: 50px;
     }
     #choices{
         height: 50px;
-        width: 350px;
+        width: 330px;
         margin:5px auto;
     }
     .box{
-        width: 70px;
-        height:70px;
+        width: 65px;
+        height:65px;
         margin-right: 23px;
     }
     #startreset{
-        width: 200px;
+        width: 100px;
         font-size: large;
         padding: 10px;
         margin: 0 auto;
+        top: 10px;
     }
     #timeremaining{
         top: 10px;
@@ -298,12 +301,12 @@ html{
     #gameOver{
         height: auto;
         width: 330px;
-        top:250px;
-        left:20px;
+        top:125px;
+        left:-5px;
     }
     #correct, #wrong{
         top: 60px;
-        left: 150px;
+        left: 130px;
         z-index: 5;
     }
 }

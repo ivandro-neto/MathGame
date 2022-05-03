@@ -1,0 +1,309 @@
+/*
+    *Math Game -- multiplications quetions*
+    *Try get more scores in just 1 minute
+    Coded by Ivandro Neto
+*/
+/*Default style*/
+html{
+    display: grid;
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(circle, #fff, #ccc);
+    align-items: center;
+    justify-content: center;
+}
+/* Intro screen Style */
+.intro{
+    display: flex;
+    position: absolute;
+    background: radial-gradient(circle, #fff, #ccc);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    color: black;
+    font-size: 100px;
+    align-items: center;
+    justify-content: center;
+    animation: start_game 500ms linear forwards;
+    animation-delay: calc(1500ms + 1500ms);
+}
+.intro span{
+    color: #535aa8;
+    animation: visible 700ms forwards;
+    animation-delay: calc(500ms + 1s);
+    opacity: 0;
+}
+.intro p{
+    transform: translateX(-1000px);
+    animation: title 500ms forwards;
+}
+
+#container{
+    animation: move .01s ease-in-out;
+    height: 420px;
+    width:560px;
+    background-color: #9DD2EA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 0px #009de4;
+    position: relative;
+}
+#score{
+    background-color: #F1FF92;
+    color: #888E5F;
+    padding: 11px;
+    position: absolute;
+    left: 500px;
+    box-shadow: 0px 4px #9da853;
+    animation: move .4s ease-in-out;
+}
+#correct{
+    position: absolute;
+    left: 260px;
+    background-color: #42e252;
+    color: white;
+    padding: 11px;
+    display: none;
+}
+#wrong{
+
+    position: absolute;
+    left: 260px;
+    background-color: #42e252;
+    color: white;
+    padding: 11px;
+    display: none;
+}
+#question{
+    animation: move .3s ease-in-out;
+    width: 450px;
+    height: 150px;
+    margin: 50px auto 10px auto;
+    background-color: #9da0ea;
+    box-shadow: 0px 4px 0px #535aa8;
+    text-align: center;
+    font-size: 100px;
+    font-family: sans-serif;
+}
+#instruction{
+    animation: move .4s ease-in-out;
+    width: 450px;
+    height: 50px;
+    background-color: #b481d9;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 45px;
+    box-shadow: 0px 4px #8153a8;
+}
+#choices{
+    height: 100px;
+    width: 450px;
+    margin:5px auto;
+}
+.box{
+    width: 85px;
+    height:85px;
+    background-color: white;
+    float: left;
+    margin-right: 36px;
+    border-radius: 2px;
+    box-shadow: 0 4px rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 80px;
+    transition: all .2s;
+    cursor: pointer;
+    position: relative;
+}
+.box:hover{
+    background-color: #9c9c9c;
+    color: white;
+
+
+}
+.ani{
+    animation: move .5s ease-in-out;
+    animation: float 1s  cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite  alternate;
+    animation-delay: calc(3s + 500ms);
+
+}
+.box:active{
+    box-shadow: 0px 0px #9DD2EA;
+    top: 4px;
+}
+#box4{
+    margin-right: 0;
+}
+#startreset{
+    width: 80px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 4px rgba(0, 0, 0, .3);
+    transition: all .2s;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+#startreset:hover{
+
+    color: white;
+    background-color: rgba(1, 83, 160, 0.5);
+}
+#startreset:active{
+    box-shadow: 0px 0px #9DD2EA;
+    top: 3px;
+}
+#timeremaining{
+    width: 152px;
+    padding: 10px;
+    position: absolute;
+    top: 395px;
+    left:400px;
+    background-color: rgba(0, 182, 0, 0.6);
+    border-radius: 4px;
+    box-shadow:0px 3px 3px rgba(0, 0, 0, .7);
+    color:whitesmoke;
+    text-align: center;
+    display: none;
+    transition: background-color 0.5s;
+}
+#gameOver{
+    height: auto;
+    width: 500px;
+    background-color: rgb(38, 184, 152);
+    color: whitesmoke;
+    font-size:2em;
+    text-align:center;
+    text-transform: uppercase;
+    position:absolute;
+    top:60px;
+    left:50px;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 10px;
+    display:none;
+    box-shadow: 0px 0px 15px black;
+    transition: font-size 0.5s;   
+}
+/*Animations*/
+@keyframes move {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }100%{
+        opacity: 1;
+        transform:translateY(0px);
+    }
+    
+}
+
+
+@keyframes float {
+    0%{
+        transform: translateY(0px);
+    }100%{
+        transform:translateY(10px);
+        
+    }
+    
+}
+@keyframes start_game{
+    0%{
+        opacity: 1;
+        display: flex;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+        z-index: -1000;
+    }
+}
+@keyframes visible{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes title {
+    0%{
+        transform: translateX(-1000px);
+    }
+    100%{
+        transform: translateX(10px);
+    }
+}
+/* Mobile view */
+@media screen and (max-width: 500px){
+    html{
+        width: auto;
+        height: auto;
+        justify-content: baseline;
+        align-items: baseline;
+    }
+    .intro{
+        width: 100vw;
+        height: 100vh;
+        font-size: 70px;   
+    }
+    #container{
+        display: grid;
+        top: 0;
+        left: 0;
+        height: 770px;
+        width:340px;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    #score{
+        top: 10px;
+        left: 300px;
+    }
+    #question{
+        display: flex;
+        width: 85vw;
+        height: 340px;
+        justify-content: center;
+        align-items: center;
+    }
+    #instruction{
+        width: 90vw;
+        height: 50px;
+    }
+    #choices{
+        height: 50px;
+        width: 350px;
+        margin:5px auto;
+    }
+    .box{
+        width: 70px;
+        height:70px;
+        margin-right: 23px;
+    }
+    #startreset{
+        width: 200px;
+        font-size: large;
+        padding: 10px;
+        margin: 0 auto;
+    }
+    #timeremaining{
+        top: 10px;
+        left: 10px;
+    }
+    #gameOver{
+        height: auto;
+        width: 330px;
+        top:250px;
+        left:20px;
+    }
+    #correct, #wrong{
+        top: 60px;
+        left: 150px;
+        z-index: 5;
+    }
+}
